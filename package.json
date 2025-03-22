@@ -2,32 +2,22 @@
 	"name": "simod-server",
 	"version": "3.0.0",
 	"description": "Simod Server",
-	"main": "src/index.ts",
+	"main": "build/index.js",
 	"scripts": {
-		"start": "ts-node .",
+		"start": "node build/index.js",
 		"start:dev": "nodemon src/index.ts",
-		"build:ts": "tsc -p .",
-		"build:pkg": "pkg .",
-		"build": "npm run build:ts && npm run build:pkg"
+		"build": "tsc -p ."
 	},
 	"author": "Ziv Sdeor",
 	"license": "ISC",
 	"devDependencies": {
 		"@types/node": "22.13.11",
-		"tsconfig-paths": "^4.2.0"
+		"ts-node": "^10.9.2",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.8.2"
 	},
 	"dependencies": {
+		"dotenv": "^16.4.7",
 		"socket.io": "^4.6.1"
-	},
-	"bin": "build/index.js",
-	"pkg": {
-		"assets": [
-			".env",
-			"files"
-		],
-		"targets": [
-			"node18-win-x64"
-		],
-		"outputPath": "."
 	}
 }

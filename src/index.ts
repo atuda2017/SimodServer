@@ -1,9 +1,14 @@
 import { log } from "./logger";
 import { httpServer, ioServer } from "./server/socket";
 import { simulator } from "./simod";
+import { config } from "dotenv";
 
-httpServer.listen(8080, function () {
-	log(`Listen on http://localhost:8080`);
+config();
+
+const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+
+httpServer.listen(port, function () {
+	log(`Listen on http://localhost:${port}`);
 });
 
 interface Handshake {
